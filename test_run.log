@@ -1,0 +1,134 @@
+=== Meticulous Cgroup Path Test (Direct Background Run) ===
+rm -f dlogger eaudit kdarshan.bpf.o kdarshan.skel.h *.o *.bin *.csv *.txt
+clang -g -O2 -target bpf -I/home/bigdatalab/tchoe/libbpf/install/usr/include -c dlogger.bpf.c -o kdarshan.bpf.o
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+        for (int i = 0; i < 5; i++) {
+        ^
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+dlogger.bpf.c:122:9: warning: loop not unrolled: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+48 warnings generated.
+/usr/lib/linux-hwe-6.8-tools-6.8.0-100/bpftool gen skeleton kdarshan.bpf.o > kdarshan.skel.h
+g++ -g -std=c++2a -Wall -O2 -DREC_ONLY_HOST -Ilib/ -c eauditd.C -o eauditd.o
+g++ -g -std=c++2a -Wall -O2 -DREC_ONLY_HOST -Ilib/ -c eParser.C -o eParser.o
+g++ -g -std=c++2a -Wall -O2 -DREC_ONLY_HOST -Ilib/ -c prthelper.C -o prthelper.o
+g++ -g -std=c++2a -Wall -O2 -DREC_ONLY_HOST -Ilib/ -c eConsumer.C -o eConsumer.o
+In file included from /usr/include/string.h:535,
+                 from eConsumer.C:16:
+In function ‘char* strncpy(char*, const char*, size_t)’,
+    inlined from ‘StrId EConsumer::getEp(const uint8_t*, int)’ at eConsumer.C:741:16:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:95:34: warning: ‘char* __builtin___strncpy_chk(char*, const char*, long unsigned int, long unsigned int)’ output may be truncated copying between 1 and 107 bytes from a string of length 107 [-Wstringop-truncation]
+   95 |   return __builtin___strncpy_chk (__dest, __src, __len,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+   96 |                                   __glibc_objsize (__dest));
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~
+g++ -g -std=c++2a -Wall -O2 -DREC_ONLY_HOST -Ilib/ -c ePrinter.C -o ePrinter.o
+g++ -g -std=c++2a -Wall -O2 -DREC_ONLY_HOST -Ilib/ -c eRecorder.C -o eRecorder.o
+g++ -g -std=c++2a -Wall -O2 -DREC_ONLY_HOST -Ilib/ -c RecOnlyHost.C -o RecOnlyHost.o
+g++ -g -std=c++2a -Wall -O2 -DREC_ONLY_HOST -Ilib/ -I/home/bigdatalab/tchoe/libbpf/install/usr/include dlogger.C \
+	eauditd.o eParser.o prthelper.o eConsumer.o ePrinter.o eRecorder.o RecOnlyHost.o \
+	/home/bigdatalab/tchoe/libbpf/install/usr/lib64/libbpf.a -lbcc -lelf -lz -lpthread -o dlogger
+dlogger.C: In function ‘int handle_path_event(void*, void*, size_t)’:
+dlogger.C:289:52: warning: ‘__builtin___snprintf_chk’ output may be truncated before the last format character [-Wformat-truncation=]
+  289 |             snprintf(resolved, MAX_PATH_LEN, "%s/%s", cwd, e->path);
+      |                                                    ^
+In file included from /usr/include/stdio.h:894,
+                 from dlogger.C:1:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:71:35: note: ‘__builtin___snprintf_chk’ output 2 or more bytes (assuming 257) into a destination of size 256
+   71 |   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   72 |                                    __glibc_objsize (__s), __fmt,
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |                                    __va_arg_pack ());
+      |                                    ~~~~~~~~~~~~~~~~~
+g++ -g -std=c++2a -Wall -O2 -DREC_ONLY_HOST -Ilib/ eaudit.C \
+	eParser.o prthelper.o eConsumer.o ePrinter.o eRecorder.o RecOnlyHost.o \
+	-lelf -lz -lpthread -o eaudit
+make: 'kdarshan_test_suite' is up to date.
+Starting dlogger...
+dlogger started with PID: 33789
+Spawning kdarshan_test_suite...
+kdarshan_test_suite running with PID: 33808
+Test program started. Waiting for tracer to attach...
+File opened. fd = 3
+mmap succeeded
+Test operations completed. Waiting for logs to drain...
+Workload completed. Waiting for dlogger to flush...
+Stopping dlogger...
+dlogger stopped.
+=== Analyzing fine.csv ===
+Header and matching lines in fine.csv:
+Wt/Rd,PID,Cgroup_ID,Cgroup_Path,Start_Time,Offset,Length,Start_Sec,End_Sec,Filename
+No session cgroup path entries in fine.csv
+=== Analyzing pg.bin with eaudit ===
+eParser: Terminating after reading 45621 bytes.
+############################## Summary from Parser #############################
+Syscalls enters=197, exits=710, exits with errors=0
+Records: time=237, sync=4, corrupted=0, truncated str=2, data=0
+****************************** Counts of Syscalls ******************************
+ Scall:    #122   close    kill 
+ Count:     148      48       1 
+******************************** Syscall exits *********************************
+ Scall:    read   write    open    kill 
+ Count:     365     290      54       1 
+Out of order records: 117, average backward slip 0.0287656 seconds
+************** Tamper window: 720 syscalls (1 critical, 0 important)
+Max tamper window 1269.47ms (211.639ms critical, 0ms important), 1 samples
+Avg tamper window 0ms (211.639ms critical, 0ms important)
+Checking parsed_audit.txt for session cgroup path...
+1782216973.391:00000:  pid=7240 cgroup=12160 cgroup_path=/user.slice/user-0.slice/session-39.scope start_time=16232931068980: open(file="/proc/14052/cmdline", flags=0, mode=0) ret=30 [id=19032461314115677]
+1782216973.392:00001:  pid=7240 cgroup=12160 cgroup_path=/user.slice/user-0.slice/session-39.scope start_time=16232931068980: open(file="/proc/7299/cmdline", flags=0, mode=0) ret=30 [id=14844770428565071147]
+1782216973.392:00002:  pid=7240 cgroup=12160 cgroup_path=/user.slice/user-0.slice/session-39.scope start_time=16232931068980: open(file="/proc/33697/cmdline", flags=0, mode=0) ret=30 [id=12842693286982382137]
+1782216973.392:00003:  pid=7240 cgroup=12160 cgroup_path=/user.slice/user-0.slice/session-39.scope start_time=16232931068980: open(file="/proc/26796/cmdline", flags=0, mode=0) ret=30 [id=3090384595103759229]
+1782216973.392:00004:  pid=7240 cgroup=12160 cgroup_path=/user.slice/user-0.slice/session-39.scope start_time=16232931068980: open(file="/proc/27025/cmdline", flags=0, mode=0) ret=30 [id=9312553337667637657]
+1782216973.591:00007:  pid=7240 cgroup=12160 cgroup_path=/user.slice/user-0.slice/session-39.scope start_time=16232931068980: open(file="/proc/14052/cmdline", flags=0, mode=0) ret=30 [id=19032461314115677]
+1782216973.591:00008:  pid=7240 cgroup=12160 cgroup_path=/user.slice/user-0.slice/session-39.scope start_time=16232931068980: read(fd=30 [id=19032461314115677]) ret=177
+1782216973.591:00009:  pid=7240 cgroup=12160 cgroup_path=/user.slice/user-0.slice/session-39.scope start_time=16232931068980: close(fd=30)
+1782216973.592:00010:  pid=7240 cgroup=12160 cgroup_path=/user.slice/user-0.slice/session-39.scope start_time=16232931068980: open(file="/proc/7299/cmdline", flags=0, mode=0) ret=30 [id=14844770428565071147]
+1782216973.598:00022:  pid=7529 cgroup=12160 cgroup_path=/user.slice/user-0.slice/session-39.scope start_time=16236552038160: tid=7541: read(fd=5 [id=15903182155527703447]) ret=8
+=== Test Completed ===
+FAILURE: Cgroup path was not captured correctly.

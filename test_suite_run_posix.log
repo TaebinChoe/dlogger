@@ -1,0 +1,228 @@
+kdarshan configured in performance mode (dxt disabled)
+kdarshan is running. Tracing target PID. Press Ctrl-C to stop...
+[DISCOVERY] File opened: /home/bigdatalab/tchoe/kdarshan/test_suite.bin (Hash: 36028943068137798, PID: 503321, Comm: kdarshan_test_s)
+# darshan log version: 3.41
+# compression method: NONE
+# exe: ./kdarshan_test_suite
+# uid: 0
+# jobid: 503321
+# start_time: 1781743798
+# start_time_asci: Thu Jun 18 09:49:58 2026
+# end_time: 1781743803
+# end_time_asci: Thu Jun 18 09:50:03 2026
+# nprocs: 1
+# run time: 5.0411
+# metadata: lib_ver = kdarshan-1.0.0
+
+# log file regions
+# -------------------------------------------------------
+# header: 1328 bytes (uncompressed)
+# job data: 676 bytes (compressed)
+# record table: 256 bytes (compressed)
+# POSIX module: 210 bytes (compressed), ver=4
+
+# mounted file systems (mount point and fs type)
+# -------------------------------------------------------
+# mount entry:	/sys	sysfs
+# mount entry:	/proc	proc
+# mount entry:	/dev	devtmpfs
+# mount entry:	/dev/pts	devpts
+# mount entry:	/run	tmpfs
+# mount entry:	/	ext4
+# mount entry:	/sys/kernel/security	securityfs
+# mount entry:	/dev/shm	tmpfs
+# mount entry:	/run/lock	tmpfs
+# mount entry:	/sys/fs/cgroup	cgroup2
+# mount entry:	/sys/fs/pstore	pstore
+# mount entry:	/sys/firmware/efi/efivars	efivarfs
+# mount entry:	/sys/fs/bpf	bpf
+# mount entry:	/proc/sys/fs/binfmt_misc	autofs
+# mount entry:	/dev/hugepages	hugetlbfs
+# mount entry:	/dev/mqueue	mqueue
+# mount entry:	/sys/kernel/debug	debugfs
+# mount entry:	/sys/kernel/tracing	tracefs
+# mount entry:	/sys/kernel/config	configfs
+# mount entry:	/sys/fs/fuse/connections	fusectl
+# mount entry:	/run/credentials/systemd-sysusers.service	ramfs
+# mount entry:	/run/qemu	tmpfs
+# mount entry:	/snap/bare/5	squashfs
+# mount entry:	/snap/core22/2339	squashfs
+# mount entry:	/snap/core22/2411	squashfs
+# mount entry:	/snap/bfg-repo-cleaner/73	squashfs
+# mount entry:	/snap/core24/1587	squashfs
+# mount entry:	/snap/core24/1643	squashfs
+# mount entry:	/snap/gnome-42-2204/226	squashfs
+# mount entry:	/snap/gnome-42-2204/247	squashfs
+# mount entry:	/snap/gnome-46-2404/153	squashfs
+# mount entry:	/snap/gtk-common-themes/1535	squashfs
+# mount entry:	/snap/mesa-2404/1165	squashfs
+# mount entry:	/snap/snap-store/1113	squashfs
+# mount entry:	/snap/snap-store/1216	squashfs
+# mount entry:	/snap/snapd/26382	squashfs
+# mount entry:	/snap/snapd/26865	squashfs
+# mount entry:	/var/snap/firefox/common/host-hunspell	ext4
+# mount entry:	/snap/snapd-desktop-integration/361	squashfs
+# mount entry:	/boot/efi	vfat
+# mount entry:	/proc/sys/fs/binfmt_misc	binfmt_misc
+# mount entry:	/run/user/1000	tmpfs
+# mount entry:	/run/user/1000/gvfs	fuse.gvfsd-fuse
+# mount entry:	/run/user/1000/doc	fuse.portal
+# mount entry:	/run/snapd/ns	tmpfs
+# mount entry:	/media/bigdatalab/UBUNTU 22_0	vfat
+# mount entry:	/run/snapd/ns/snap-store.mnt	nsfs
+# mount entry:	/snap/google-cloud-cli/465	squashfs
+# mount entry:	/sys/kernel/debug/tracing	tracefs
+# mount entry:	/var/lib/docker/overlay2/45024b5733b7cf6ede10b454b1abe68d19d348fa4259a27594a79123f441ab9d/merged	overlay
+# mount entry:	/run/docker/netns/cfeed6e900df	nsfs
+# mount entry:	/var/lib/docker/overlay2/6199580d99b106a9aa4b837dab8ae1005db2159546ea2f5393da922f2e02f850/merged	overlay
+# mount entry:	/run/docker/netns/ae43f13f0d2d	nsfs
+# mount entry:	/var/lib/docker/overlay2/c52dee832341a96f9eaf8a26815c868cd0fd878b17f100275c5c79e9cbcd270c/merged	overlay
+# mount entry:	/run/docker/netns/9555dadd0bfd	nsfs
+# mount entry:	/var/lib/docker/overlay2/95f7fcb7676b998cc707fa7eb4a6b12a067ccfd458f07ab4518ffe5ea89ee874/merged	overlay
+# mount entry:	/run/docker/netns/497e1da7a0c9	nsfs
+# mount entry:	/snap/google-cloud-cli/467	squashfs
+# mount entry:	/snap/firefox/8462	squashfs
+# mount entry:	/snap/snapd-desktop-integration/387	squashfs
+# mount entry:	/run/snapd/ns/snapd-desktop-integration.mnt	nsfs
+# mount entry:	/snap/firefox/8504	squashfs
+# mount entry:	/snap/mesa-2404/1781	squashfs
+# mount entry:	/run/snapd/ns/mesa-2404.mnt	nsfs
+# mount entry:	/run/user/0	tmpfs
+# mount entry:	/run/user/0/doc	fuse.portal
+
+# description of columns:
+#   <module>: module responsible for this I/O record.
+#   <rank>: MPI rank.  -1 indicates that the file is shared
+#      across all processes and statistics are aggregated.
+#   <record id>: hash of the record's file path
+#   <counter name> and <counter value>: statistical counters.
+#      A value of -1 indicates that Darshan could not monitor
+#      that counter, and its value should be ignored.
+#   <file name>: full file path for the record.
+#   <mount pt>: mount point that the file resides on.
+#   <fs type>: type of file system that the file resides on.
+
+# *******************************************************
+# POSIX module data
+# *******************************************************
+
+# description of POSIX counters:
+#   POSIX_*: posix operation counts.
+#   READS,WRITES,OPENS,SEEKS,STATS,MMAPS,SYNCS,FILENOS,DUPS are types of operations.
+#   POSIX_RENAME_SOURCES/TARGETS: total count file was source or target of a rename operation
+#   POSIX_RENAMED_FROM: Darshan record ID of the first rename source, if file was a rename target
+#   POSIX_MODE: mode that file was opened in.
+#   POSIX_BYTES_*: total bytes read and written.
+#   POSIX_MAX_BYTE_*: highest offset byte read and written.
+#   POSIX_CONSEC_*: number of exactly adjacent reads and writes.
+#   POSIX_SEQ_*: number of reads and writes from increasing offsets.
+#   POSIX_RW_SWITCHES: number of times access alternated between read and write.
+#   POSIX_*_ALIGNMENT: memory and file alignment.
+#   POSIX_*_NOT_ALIGNED: number of reads and writes that were not aligned.
+#   POSIX_MAX_..._TIME_SIZE: size of the slowest read and write operations.
+#   POSIX_SIZE_*_*: histogram of read and write access sizes.
+#   POSIX_STRIDE*_STRIDE: the four most common strides detected.
+#   POSIX_STRIDE*_COUNT: count of the four most common strides.
+#   POSIX_ACCESS*_ACCESS: the four most common access sizes.
+#   POSIX_ACCESS*_COUNT: count of the four most common access sizes.
+#   POSIX_*_RANK: rank of the processes that were the fastest and slowest at I/O (for shared files).
+#   POSIX_*_RANK_BYTES: bytes transferred by the fastest and slowest ranks (for shared files).
+#   POSIX_F_*_START_TIMESTAMP: timestamp of first open/read/write/close.
+#   POSIX_F_*_END_TIMESTAMP: timestamp of last open/read/write/close.
+#   POSIX_F_READ/WRITE/META_TIME: cumulative time spent in read, write, or metadata operations.
+#   POSIX_F_MAX_*_TIME: duration of the slowest read and write operations.
+#   POSIX_F_*_RANK_TIME: fastest and slowest I/O time for a single rank (for shared files).
+#   POSIX_F_VARIANCE_RANK_*: variance of total I/O time and bytes moved for all ranks (for shared files).
+
+# WARNING: POSIX_OPENS counter includes both POSIX_FILENOS and POSIX_DUPS counts
+
+# WARNING: POSIX counters related to file offsets may be incorrect if a file is simultaneously accessed by both POSIX and STDIO (e.g., using fileno())
+# 	- Affected counters include: MAX_BYTE_{READ|WRITTEN}, CONSEC_{READS|WRITES}, SEQ_{READS|WRITES}, {MEM|FILE}_NOT_ALIGNED, STRIDE*_STRIDE
+
+#<module>	<rank>	<record id>	<counter>	<value>	<file name>	<mount pt>	<fs type>
+POSIX	-1	36028943068137798	POSIX_OPENS	2	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_FILENOS	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_DUPS	1	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_READS	1	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_WRITES	4	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SEEKS	2	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_STATS	1	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_MMAPS	1	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_FSYNCS	1	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_FDSYNCS	1	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_RENAME_SOURCES	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_RENAME_TARGETS	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_RENAMED_FROM	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_MODE	420	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_BYTES_READ	10	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_BYTES_WRITTEN	56	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_MAX_BYTE_READ	9	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_MAX_BYTE_WRITTEN	40	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_CONSEC_READS	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_CONSEC_WRITES	1	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SEQ_READS	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SEQ_WRITES	1	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_RW_SWITCHES	2	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_MEM_NOT_ALIGNED	1	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_MEM_ALIGNMENT	8	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_FILE_NOT_ALIGNED	3	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_FILE_ALIGNMENT	4096	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_MAX_READ_TIME_SIZE	10	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_MAX_WRITE_TIME_SIZE	10	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_READ_0_100	1	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_READ_100_1K	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_READ_1K_10K	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_READ_10K_100K	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_READ_100K_1M	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_READ_1M_4M	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_READ_4M_10M	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_READ_10M_100M	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_READ_100M_1G	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_READ_1G_PLUS	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_WRITE_0_100	4	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_WRITE_100_1K	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_WRITE_1K_10K	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_WRITE_10K_100K	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_WRITE_100K_1M	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_WRITE_1M_4M	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_WRITE_4M_10M	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_WRITE_10M_100M	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_WRITE_100M_1G	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SIZE_WRITE_1G_PLUS	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_STRIDE1_STRIDE	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_STRIDE2_STRIDE	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_STRIDE3_STRIDE	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_STRIDE4_STRIDE	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_STRIDE1_COUNT	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_STRIDE2_COUNT	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_STRIDE3_COUNT	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_STRIDE4_COUNT	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_ACCESS1_ACCESS	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_ACCESS2_ACCESS	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_ACCESS3_ACCESS	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_ACCESS4_ACCESS	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_ACCESS1_COUNT	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_ACCESS2_COUNT	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_ACCESS3_COUNT	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_ACCESS4_COUNT	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_FASTEST_RANK	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_FASTEST_RANK_BYTES	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SLOWEST_RANK	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_SLOWEST_RANK_BYTES	0	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_F_OPEN_START_TIMESTAMP	1442524.202565	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_F_READ_START_TIMESTAMP	1442524.202699	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_F_WRITE_START_TIMESTAMP	1442524.202632	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_F_CLOSE_START_TIMESTAMP	1442524.209735	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_F_OPEN_END_TIMESTAMP	1442524.202565	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_F_READ_END_TIMESTAMP	1442524.202705	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_F_WRITE_END_TIMESTAMP	1442524.202711	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_F_CLOSE_END_TIMESTAMP	1442524.209740	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_F_READ_TIME	0.000006	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_F_WRITE_TIME	0.000054	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_F_META_TIME	0.000000	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_F_MAX_READ_TIME	0.000006	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_F_MAX_WRITE_TIME	0.000041	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_F_FASTEST_RANK_TIME	0.000000	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_F_SLOWEST_RANK_TIME	0.000000	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_F_VARIANCE_RANK_TIME	0.000000	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
+POSIX	-1	36028943068137798	POSIX_F_VARIANCE_RANK_BYTES	0.000000	/home/bigdatalab/tchoe/kdarshan/test_suite.bin	/	ext4
