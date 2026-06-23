@@ -214,6 +214,8 @@ bool is_excluded(const std::string& path, const std::vector<std::string>& exclud
 
 // Global exclude path lists
 static std::vector<std::string> fine_excludes;
+static std::string fine_csv_path = "fine.csv";
+static std::string pg_bin_path = "pg.bin";
 
 void load_dlogger_config(const std::string& config_path) {
     std::ifstream f(config_path);
@@ -260,6 +262,10 @@ void load_dlogger_config(const std::string& config_path) {
             }
             std::vector<std::string> parsed = parse_exclude_paths(val.c_str());
             fine_excludes.insert(fine_excludes.end(), parsed.begin(), parsed.end());
+        } else if (key == "FINE_CSV_PATH") {
+            fine_csv_path = val;
+        } else if (key == "PG_BIN_PATH") {
+            pg_bin_path = val;
         }
     }
 }
@@ -386,11 +392,21 @@ int main(int argc, char **argv) {
         }
     }
 
+    // Check environment variable overrides for output paths
+    const char* env_csv = getenv("DLOGGER_CSV_PATH");
+    if (env_csv) {
+        fine_csv_path = env_csv;
+    }
+    const char* env_bin = getenv("DLOGGER_BIN_PATH");
+    if (env_bin) {
+        pg_bin_path = env_bin;
+    }
+
     // 1. Initialize eaudit C++ daemon
     const char* eaudit_argv[] = {
         "dlogger",
         "1048576",
-        "-C", "pg.bin",
+        "-C", pg_bin_path.c_str(),
         "-l", "2"
     };
     init_consumer(6, eaudit_argv);
@@ -556,7 +572,7 @@ int main(int argc, char **argv) {
     end_op();
 
     // 6. Write fine.csv
-    std::ofstream csv_file("fine.csv");
+    std::ofstream csv_file(fine_csv_path);
     if (csv_file.is_open()) {
         csv_file << "Wt/Rd,PID,Cgroup_ID,Cgroup_Path,Start_Time,Offset,Length,Start_Sec,End_Sec,Filename\n";
         dxt_node *curr = dxt_head;
@@ -591,9 +607,9 @@ int main(int argc, char **argv) {
             curr = curr->next;
         }
         csv_file.close();
-        fprintf(stderr, "Processed %d DXT events, written to fine.csv\n", dxt_count);
+        fprintf(stderr, "Processed %d DXT events, written to %s\n", dxt_count, fine_csv_path.c_str());
     } else {
-        fprintf(stderr, "Failed to open fine.csv for writing\n");
+        fprintf(stderr, "Failed to open %s for writing\n", fine_csv_path.c_str());
     }
 
     // Clean up lists

@@ -12,6 +12,25 @@ It produces two distinct outputs, filters out its own execution automatically vi
 
 ---
 
+## Configuring Output Paths
+
+By default, `dlogger` writes `fine.csv` and `pg.bin` to the current working directory. You can designate custom output paths using either environment variables or the configuration file (`dlogger.conf`).
+
+### Method 1: Environment Variables (Precedence)
+Specify the environment variables when running `dlogger`:
+```bash
+sudo env DLOGGER_CSV_PATH=/path/to/output.csv DLOGGER_BIN_PATH=/path/to/output.bin ./dlogger
+```
+
+### Method 2: Configuration Settings (`dlogger.conf`)
+Add these options directly to your config file:
+```ini
+FINE_CSV_PATH = /path/to/output.csv
+PG_BIN_PATH = /path/to/output.bin
+```
+
+---
+
 ## Quick Start Guide (Copy & Paste)
 
 Follow these steps in order to install, compile, run, and verify `dlogger`.
