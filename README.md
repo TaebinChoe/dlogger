@@ -1,114 +1,146 @@
+
+
+---
+
+```markdown
 # dlogger - Unified Kernel & Userspace I/O Logger
 
-`dlogger` is a unified, high-performance kernel/userspace logging tool that combines the system call auditing features of `eaudit` with the application-level I/O characterization of `kdarshan`.
+`dlogger` is a unified, high-performance kernel/userspace logging tool that combines the system call auditing features of `eaudit` with the application-level I/O characterization of `kdarshan`. 
 
-It produces two distinct outputs, filters out its own execution automatically via descendant self-exclusion, and enriches every process log entry with Process ID, Cgroup ID, Cgroup Path, and task Start Time.
+It filters out its own execution automatically via descendant self-exclusion and enriches every process log entry with Process ID, Cgroup ID, Cgroup Path, and Task Start Time.
 
 ---
 
 ## Output Logs
-1.  **`pg.bin`**: `eaudit`-style binary capture file containing enriched process info (PID, Cgroup, Cgroup Path, Start Time). Can be inspected using the offline parser: `./eaudit -I pg.bin -P -`.
-2.  **`fine.csv`**: DXT-style CSV file containing read/write metrics (PID, Cgroup, Cgroup Path, Start Time, Offset, Length, Timestamps, Filename), filtered by `FINE_EXCLUDE_PATH`.
+1. **`pg.bin`**: `eaudit`-style binary capture file containing enriched process info (PID, Cgroup, Cgroup Path, Start Time). Inspect using the offline parser: `./eaudit -I pg.bin -P -`.
+2. **`fine.csv`**: DXT-style CSV file containing read/write metrics (PID, Cgroup, Cgroup Path, Start Time, Offset, Length, Timestamps, Filename), filtered by `FINE_EXCLUDE_PATH`.
 
 ---
 
-## Configuring Output Paths
+## Installation & Deployment Guide (A to Z)
 
-By default, `dlogger` writes `fine.csv` and `pg.bin` to the current working directory. You can designate custom output paths using either environment variables or the configuration file (`dlogger.conf`).
+Follow these steps in order to install dependencies, compile the source code, and run `dlogger` inside your local directory (`~/app/dlogger`).
 
-### Method 1: Environment Variables (Precedence)
-Specify the environment variables when running `dlogger`:
+### 1. Install Toolchains and Kernel Packages
+First, set up the basic build tools, compiler collections, and necessary kernel header files corresponding to your running kernel version.
+
 ```bash
-sudo env DLOGGER_CSV_PATH=/path/to/output.csv DLOGGER_BIN_PATH=/path/to/output.bin ./dlogger
+sudo apt update
+sudo apt install -y linux-tools-common linux-tools-$(uname -r) linux-headers-$(uname -r)
+
 ```
 
-### Method 2: Configuration Settings (`dlogger.conf`)
-Add these options directly to your config file:
-```ini
-FINE_CSV_PATH = /path/to/output.csv
-PG_BIN_PATH = /path/to/output.bin
+### 2. Build and Install BCC (BPF Compiler Collection) From Source
+
+Since some Ubuntu repositories might lack or contain outdated `libbcc-dev` packages, we compile the latest stable BCC framework directly from the source to guarantee `libbcc.so.0` runtime compatibility.
+
+```bash
+# Install BCC build-time dependencies
+sudo apt install -y zip bison build-essential cmake flex git libedit-dev \
+  libllvm14 llvm-14-dev libclang-14-dev python3 zlib1g-dev libelf-dev libfl-dev \
+  python3-setuptools liblzma-dev libdebuginfod-dev
+
+# Clone and compile BCC
+mkdir -p ~/app/src && cd ~/app/src
+git clone [https://github.com/iovisor/bcc.git](https://github.com/iovisor/bcc.git)
+mkdir -p bcc/build && cd bcc/build
+cmake ..
+make -j$(nproc)
+sudo make install
+
+# Update system dynamic linker cache so libbcc.so.0 is globally recognized
+sudo ldconfig
+
 ```
 
----
+### 3. Compile Static `libbpf`
 
-## Quick Start Guide (Copy & Paste)
+`dlogger` requires linking against a static `libbpf` instance (v1.0 or higher).
 
-Follow these steps in order to install, compile, run, and verify `dlogger`.
-
-### 1. Install System Dependencies
-Run the following commands to install compilation tools, kernel tracing libraries, and `libbcc` C++ dependencies:
 ```bash
-sudo apt-get update
-sudo apt-get install -y clang llvm libelf-dev zlib1g-dev make gcc pkg-config git libbcc-dev
-sudo apt-get install -y linux-tools-common linux-tools-$(uname -r)
-```
-
-### 2. Compile static `libbpf`
-`dlogger` links with static `libbpf` (version 1.0 or higher). If you have not compiled it already:
-```bash
-cd /home/bigdatalab/tchoe
-git clone https://github.com/libbpf/libbpf.git
+cd ~/app
+git clone [https://github.com/libbpf/libbpf.git](https://github.com/libbpf/libbpf.git)
 cd libbpf/src
 make BUILD_STATIC_ONLY=y DESTDIR=$(pwd)/install install
+
 ```
 
-### 3. Build `dlogger` and the Offline Parser
-Navigate to the `dlogger` source directory, clean up any stale artifacts, and build both the unified tracer and offline parser:
-```bash
-cd /home/bigdatalab/tchoe/dlogger
+### 4. Build `dlogger` and the Offline Parser
 
-# Clean old object files
+Navigate to your local `dlogger` directory, clean up old artifacts, and compile both the unified tracer and the binary log parser.
+
+```bash
+cd ~/app/dlogger
+
+# Clean stale object files
 make clean
 
-# Compile the BPF bytecode and binary executable
-make LIBBPF_DIR=/home/bigdatalab/tchoe/libbpf/src/install BPFTOOL=/usr/lib/linux-tools/$(uname -r)/bpftool
+# Compile the BPF bytecode and the main dlogger executable
+make LIBBPF_DIR=~/app/libbpf/src/install BPFTOOL=/usr/lib/linux-tools/$(uname -r)/bpftool
 
 # Compile the eaudit offline parser binary
 g++ -g -std=c++2a -Wall -O2 -DREC_ONLY_HOST -Ilib/ -c eaudit.C -o eaudit.o
 g++ -o eaudit eaudit.o eauditd.o eParser.o prthelper.o eConsumer.o ePrinter.o eRecorder.o RecOnlyHost.o -lbcc -lelf -lz -lpthread
+
 ```
 
-### 4. Run `dlogger` and Trigger test I/O
-Configure your exclude paths in `dlogger.conf` (which is loaded automatically from the current directory, `/etc/dlogger.conf`, or can be passed as a command-line argument). Run `dlogger` with root privileges in the background, trigger some file I/O operations, and stop the logger cleanly using `SIGINT`:
+> *Note: You might encounter several compiler warnings regarding `loop not unrolled` or `output may be truncated`. These are expected optimization behaviors and can safely be ignored as long as the binaries are generated successfully.*
+
+---
+
+## Verification & Execution Guide
+
+### 1. Run `dlogger` and Trigger Test I/O
+
+Make sure your exclude pathways are configured properly inside `dlogger.conf` (loaded automatically from the current directory). Launch `dlogger` with root privileges in the background, issue dummy file writes, and cleanly terminate using `SIGINT`.
+
 ```bash
-cd /home/bigdatalab/tchoe/dlogger
+cd ~/app/dlogger
 
-# Edit the dlogger.conf configuration file:
-# vi dlogger.conf
-
-# Start dlogger as a background task (automatically loads dlogger.conf)
+# Start dlogger as a background task
 sudo ./dlogger &
 DLOGGER_PID=$!
 sleep 2
 
-# Run file I/O operations (tracked)
+# Generate sample I/O workload (10MB block write)
 dd if=/dev/zero of=test_dd.bin bs=1M count=10
 sync
 
-# Stop dlogger gracefully (triggers final flush and log generation)
+# Gracefully terminate dlogger to trigger final buffer flush
 sudo kill -2 $DLOGGER_PID
 sleep 2
+
 ```
 
-### 5. Verify the Generated Logs
-Inspect the two generated files to verify they contain correct, enriched process metadata:
+### 2. Verify Generated Logs
 
-*   **Inspect `fine.csv` (DXT CSV):**
-	```bash
-	cat fine.csv
-	```
-	*(Expect headers and read/write CSV entries with PID, Cgroup_ID, Cgroup_Path, and Start_Time).*
+* **Inspect Characterization Metrics (`fine.csv`):**
+```bash
+cat fine.csv
 
-*   **Parse `pg.bin` using `./eaudit` (Binary Audit Capture):**
-	```bash
-	./eaudit -I pg.bin -P -
-	```
-	*(Expect formatted system call entries displaying `pid=... cgroup=... cgroup_path=... start_time=...` details).*
+```
 
-*   **Verify Self-Exclusion:**
-	Verify that no records match the PID of `dlogger` or its children:
-	```bash
-	grep "$DLOGGER_PID" fine.csv
-	./eaudit -I pg.bin -P - 2>&1 | grep "pid=$DLOGGER_PID"
-	```
-	*(Expect no matching lines to print, confirming descendant self-exclusion).*
+
+*(Expect structured CSV trace headers and metrics mapping Offset, Length, and Timestamps).*
+* **Parse Binary Capture File (`pg.bin`):**
+```bash
+./eaudit -I pg.bin -P -
+
+```
+
+
+*(Expect clean text translations mapping `pid=... cgroup=... cgroup_path=... start_time=...` details).*
+* **Verify Descendant Self-Exclusion:**
+Ensure `dlogger` successfully avoided capturing its own background execution trail.
+```bash
+grep "$DLOGGER_PID" fine.csv
+./eaudit -I pg.bin -P - 2>&1 | grep "pid=$DLOGGER_PID"
+
+```
+
+
+*(Expect no matching outputs to print, validating full descendant exclusion).*
+
+```
+
+```
